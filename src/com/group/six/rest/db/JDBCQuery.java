@@ -7,11 +7,13 @@ import java.sql.Statement;
 
 import com.group.six.rest.db.datos.Datos;
 import com.group.six.rest.db.datos.Linea;
+import com.group.six.rest.db.datos.Tarea;
+import com.group.six.rest.db.datos.Usuario;
 
 public class JDBCQuery {
 
 	@SuppressWarnings("resource")
-	public static boolean insertar(Datos datos) {
+	public static boolean insertarUsuarios(Datos datos) {
 		Statement stmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
@@ -19,8 +21,9 @@ public class JDBCQuery {
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
-			for (Linea item : datos.getLineas()) {
-				stmt.execute(creaInsert(item));
+
+			for (Usuario item : datos.getUsuarios()) {
+				stmt.execute(creaInsertUsuario(item));
 			}
 			return true;
 		} catch (Exception e) {
@@ -40,10 +43,85 @@ public class JDBCQuery {
 		}
 	}
 
-	private static String creaInsert(Linea item) {
-		return "INSERT INTO tablaDatos (codigo,element, url, event, time) " + "VALUES " + "('" + item.getCodigo()
-				+ "', '" + item.getElement() + "','" + item.getUrl() + "', '" + item.getEvent() + "', '"
-				+ item.getTime() + "')";
+	@SuppressWarnings("resource")
+	public static boolean insertarTareas(Datos datos) {
+		Statement stmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();
+
+			for (Tarea item : datos.getTareas()) {
+				stmt.execute(creaInsertTarea(item));
+			}
+
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@SuppressWarnings("resource")
+	public static boolean insertarLineas(Datos datos) {
+		Statement stmt = null;
+		Connection conn = null;
+		ResultSet rs = null;
+
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();
+
+			for (Linea item : datos.getLineas()) {
+				stmt.execute(creaInsertLinea(item));
+			}
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private static String creaInsertLinea(Linea item) {
+		return "INSERT INTO datosRequest ('keyUsuario', 'keyTarea', 'elemento', 'url', 'evento', 'tiempo', 'pcIp') "
+				+ "VALUES " + "('" + item.getKeyUsuario() + "', '" + item.getKeyTarea() + "','" + item.getElemento()
+				+ "', '" + item.getUrl() + "', '" + item.getEvento() + "', '" + item.getTiempo() + "', '"
+				+ item.getPcIp() + "')";
+	}
+
+	private static String creaInsertTarea(Tarea item) {
+		return "INSERT INTO datosTarea ('keyTarea', 'instrucciones', 'urlInicio', 'urlFinal', 'tiempo') " + "VALUES "
+				+ "('" + item.getKeyTarea() + "', '" + item.getInstrucciones() + "','" + item.getUrlInicio() + "', '"
+				+ item.getUrlFinal() + "', '" + item.getTiempo() + "')";
+	}
+
+	private static String creaInsertUsuario(Usuario user) {
+		return "INSERT INTO datosUser ('keyUsuario', 'edad', 'sexo') " + "VALUES " + "('" + user.getKeyUsuario()
+				+ "', '" + user.getEdad() + "','" + user.getSexo() + "')";
 	}
 
 	/**
@@ -52,7 +130,7 @@ public class JDBCQuery {
 
 	public static Connection getConnection() throws Exception {
 		Class.forName("com.mysql.jdbc.driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/test?user=root&password=");
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/dbProxyMob?user=root&password=");
 		return conn;
 	}
 

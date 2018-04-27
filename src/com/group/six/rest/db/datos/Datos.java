@@ -3,7 +3,10 @@ package com.group.six.rest.db.datos;
 import java.util.ArrayList;
 
 public class Datos {
+
 	private ArrayList<Linea> lineas = null;
+	private ArrayList<Usuario> usuarios = null;
+	private ArrayList<Tarea> tareas = null;
 
 	public Datos() {
 		super();
@@ -20,6 +23,22 @@ public class Datos {
 
 	public void setLineas(ArrayList<Linea> lineas) {
 		this.lineas = lineas;
+	}
+
+	public ArrayList<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(ArrayList<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public ArrayList<Tarea> getTareas() {
+		return tareas;
+	}
+
+	public void setTareas(ArrayList<Tarea> tareas) {
+		this.tareas = tareas;
 	}
 
 }

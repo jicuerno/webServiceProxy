@@ -6,39 +6,53 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class Linea {
-	private String codigo;
-	private String element;
+
+	private String keyUsuario;
+	private String keyTarea;
+	private String elemento;
 	private String url;
-	private String event;
-	private Date time;
+	private String evento;
+	private Date tiempo;
+	private String pcIp;
 
 	public Linea() {
 		super();
 	}
 
-	public Linea(String codigo, String element, String url, String event, Date time) {
+	public Linea(String keyUsuario, String keyTarea, String elemento, String url, String evento, Date tiempo,
+			String pcIp) {
 		super();
-		this.codigo = codigo;
-		this.element = element;
+		this.keyUsuario = keyUsuario;
+		this.keyTarea = keyTarea;
+		this.elemento = elemento;
 		this.url = url;
-		this.event = event;
-		this.time = time;
+		this.evento = evento;
+		this.tiempo = tiempo;
+		this.pcIp = pcIp;
 	}
 
-	public String getCodigo() {
-		return codigo;
+	public String getKeyUsuario() {
+		return keyUsuario;
 	}
 
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
+	public void setKeyUsuario(String keyUsuario) {
+		this.keyUsuario = keyUsuario;
 	}
 
-	public String getElement() {
-		return element;
+	public String getKeyTarea() {
+		return keyTarea;
 	}
 
-	public void setElement(String element) {
-		this.element = element;
+	public void setKeyTarea(String keyTarea) {
+		this.keyTarea = keyTarea;
+	}
+
+	public String getElemento() {
+		return elemento;
+	}
+
+	public void setElemento(String elemento) {
+		this.elemento = elemento;
 	}
 
 	public String getUrl() {
@@ -49,23 +63,28 @@ public class Linea {
 		this.url = url;
 	}
 
-	public String getEvent() {
-		return event;
+	public String getEvento() {
+		return evento;
 	}
 
-	public void setEvent(String event) {
-		this.event = event;
+	public void setEvento(String evento) {
+		this.evento = evento;
 	}
 
-	public Date getTime() {
-		return time;
+	public Date getTiempo() {
+		return tiempo;
 	}
 
-	public void setTime(Date time) {
-		this.time = time;
+	public void setTiempo(String tiempo) {
+		this.tiempo = new Date(Long.parseLong(tiempo));
 	}
 
-	public void setTime(String time) {
-		this.time = new Date(Long.parseLong(time));
+	public String getPcIp() {
+		return pcIp;
 	}
+
+	public void setPcIp(String pcIp) {
+		this.pcIp = pcIp;
+	}
+
 }
