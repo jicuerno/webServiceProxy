@@ -10,6 +10,9 @@ public class Datos {
 
 	public Datos() {
 		super();
+		lineas = new ArrayList<>();
+		usuarios = new ArrayList<>();
+		tareas = new ArrayList<>();
 	}
 
 	public Datos(ArrayList<Linea> lineas) {

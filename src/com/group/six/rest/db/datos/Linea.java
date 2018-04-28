@@ -2,9 +2,6 @@ package com.group.six.rest.db.datos;
 
 import java.sql.Date;
 
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
 public class Linea {
 
 	private String keyUsuario;

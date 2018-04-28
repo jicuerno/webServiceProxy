@@ -130,7 +130,7 @@ public class JDBCQuery {
 
 	public static Connection getConnection() throws Exception {
 		Class.forName("com.mysql.jdbc.driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/dbProxyMob?user=root&password=");
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbProxyMob");
 		return conn;
 	}
 
