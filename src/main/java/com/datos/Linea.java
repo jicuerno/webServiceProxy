@@ -1,4 +1,4 @@
-package com.group.six.rest.db.datos;
+package com.datos;
 
 import java.sql.Date;
 

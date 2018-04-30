@@ -1,14 +1,14 @@
-package com.group.six.rest.db;
+package com.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import com.group.six.rest.db.datos.Datos;
-import com.group.six.rest.db.datos.Linea;
-import com.group.six.rest.db.datos.Tarea;
-import com.group.six.rest.db.datos.Usuario;
+import com.datos.Datos;
+import com.datos.Linea;
+import com.datos.Tarea;
+import com.datos.Usuario;
 
 public class JDBCQuery {
 

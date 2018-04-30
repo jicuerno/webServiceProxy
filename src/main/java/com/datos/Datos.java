@@ -1,4 +1,4 @@
-package com.group.six.rest.db.datos;
+package com.datos;
 
 import java.util.ArrayList;
 
@@ -10,9 +10,9 @@ public class Datos {
 
 	public Datos() {
 		super();
-		lineas = new ArrayList<>();
-		usuarios = new ArrayList<>();
-		tareas = new ArrayList<>();
+		lineas = new ArrayList<Linea>();
+		usuarios = new ArrayList<Usuario>();
+		tareas = new ArrayList<Tarea>();
 	}
 
 	public Datos(ArrayList<Linea> lineas) {

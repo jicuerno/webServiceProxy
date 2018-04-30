@@ -1,4 +1,4 @@
-package com.group.six.rest.db.datos;
+package com.datos;
 
 public class Usuario {
 	String keyUsuario;

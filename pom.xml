@@ -2,10 +2,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>WebService</groupId>
+	<groupId>com.group.six</groupId>
 	<artifactId>WebService</artifactId>
 	<packaging>war</packaging>
-	<version>3.0.0</version>
+	<version>1.0.0</version>
 	<name>WebService Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<build>
@@ -73,12 +73,6 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.16.20</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-codec</groupId>
