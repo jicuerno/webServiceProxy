@@ -1,6 +1,7 @@
 package com.db;
 
 import java.sql.Connection;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -129,8 +130,19 @@ public class JDBCQuery {
 	 */
 
 	public static Connection getConnection() throws Exception {
-		Class.forName("com.mysql.jdbc.driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbProxyMob");
+		String url = "jdbc:mysql://localhost:3306/";
+		String dbName = "dbProxyMob";
+		String driver = "com.mysql.cj.jdbc.Driver";
+		String userName = "root";
+		String password = "";
+		String opts= "?useLegacyDatetimeCode=false&serverTimezone=UTC";
+
+		Class<?> driver_class = Class.forName(driver);
+		Driver drv = (Driver) driver_class.newInstance();
+		DriverManager.registerDriver(drv);
+
+		Connection conn = DriverManager.getConnection(url + dbName + opts, userName, password);
+
 		return conn;
 	}
 
