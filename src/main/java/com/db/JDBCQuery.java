@@ -108,21 +108,20 @@ public class JDBCQuery {
 	}
 
 	private static String creaInsertLinea(Linea item) {
-		return "INSERT INTO datosRequest ('keyUsuario', 'keyTarea', 'elemento', 'url', 'evento', 'tiempo', 'pcIp') "
-				+ "VALUES " + "('" + item.getKeyUsuario() + "', '" + item.getKeyTarea() + "','" + item.getElemento()
-				+ "', '" + item.getUrl() + "', '" + item.getEvento() + "', '" + item.getTiempo() + "', '"
-				+ item.getPcIp() + "')";
+		return "INSERT INTO datosRequest (keyUsuario, keyTarea, elemento, url, evento, tiempo, pcIp) " + "VALUES "
+				+ "('" + item.getKeyUsuario() + "','" + item.getKeyTarea() + "','" + item.getElemento() + "','"
+				+ item.getUrl() + "','" + item.getEvento() + "','" + item.getTiempo() + "','" + item.getPcIp() + "')";
 	}
 
 	private static String creaInsertTarea(Tarea item) {
-		return "INSERT INTO datosTarea ('keyTarea', 'instrucciones', 'urlInicio', 'urlFinal', 'tiempo') " + "VALUES "
-				+ "('" + item.getKeyTarea() + "', '" + item.getInstrucciones() + "','" + item.getUrlInicio() + "', '"
-				+ item.getUrlFinal() + "', '" + item.getTiempo() + "')";
+		return "INSERT INTO datosTarea (keyTarea, instrucciones, urlInicio, urlFinal, tiempo) " + "VALUES " + "('"
+				+ item.getKeyTarea() + "','" + item.getInstrucciones() + "','" + item.getUrlInicio() + "','"
+				+ item.getUrlFinal() + "','" + item.getTiempo() + "')";
 	}
 
 	private static String creaInsertUsuario(Usuario user) {
-		return "INSERT INTO datosUser ('keyUsuario', 'edad', 'sexo') " + "VALUES " + "('" + user.getKeyUsuario()
-				+ "', '" + user.getEdad() + "','" + user.getSexo() + "')";
+		return "INSERT INTO datosUser (keyUsuario,edad,sexo) " + "VALUES " + "('" + user.getKeyUsuario() + "',"
+				+ user.getEdad() + ",'" + user.getSexo() + "')";
 	}
 
 	/**
@@ -135,7 +134,7 @@ public class JDBCQuery {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String userName = "root";
 		String password = "";
-		String opts= "?useLegacyDatetimeCode=false&serverTimezone=UTC";
+		String opts = "?useLegacyDatetimeCode=false&serverTimezone=UTC";
 
 		Class<?> driver_class = Class.forName(driver);
 		Driver drv = (Driver) driver_class.newInstance();
