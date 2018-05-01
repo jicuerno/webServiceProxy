@@ -5,6 +5,7 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
 
 import com.datos.Datos;
 import com.datos.Linea;
@@ -13,7 +14,6 @@ import com.datos.Usuario;
 
 public class JDBCQuery {
 
-	@SuppressWarnings("resource")
 	public static boolean insertarUsuarios(Datos datos) {
 		Statement stmt = null;
 		Connection conn = null;
@@ -44,7 +44,6 @@ public class JDBCQuery {
 		}
 	}
 
-	@SuppressWarnings("resource")
 	public static boolean insertarTareas(Datos datos) {
 		Statement stmt = null;
 		Connection conn = null;
@@ -76,7 +75,6 @@ public class JDBCQuery {
 		}
 	}
 
-	@SuppressWarnings("resource")
 	public static boolean insertarLineas(Datos datos) {
 		Statement stmt = null;
 		Connection conn = null;
@@ -110,7 +108,8 @@ public class JDBCQuery {
 	private static String creaInsertLinea(Linea item) {
 		return "INSERT INTO datosRequest (keyUsuario, keyTarea, elemento, url, evento, tiempo, pcIp) " + "VALUES "
 				+ "('" + item.getKeyUsuario() + "','" + item.getKeyTarea() + "','" + item.getElemento() + "','"
-				+ item.getUrl() + "','" + item.getEvento() + "','" + item.getTiempo() + "','" + item.getPcIp() + "')";
+				+ item.getUrl() + "','" + item.getEvento() + "','" + new Timestamp(Long.parseLong(item.getTiempo())) + "','"
+				+ item.getPcIp() + "')";
 	}
 
 	private static String creaInsertTarea(Tarea item) {

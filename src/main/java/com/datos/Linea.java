@@ -1,7 +1,5 @@
 package com.datos;
 
-import java.sql.Date;
-
 public class Linea {
 
 	private String keyUsuario;
@@ -9,14 +7,14 @@ public class Linea {
 	private String elemento;
 	private String url;
 	private String evento;
-	private Date tiempo;
+	private String tiempo;
 	private String pcIp;
 
 	public Linea() {
 		super();
 	}
 
-	public Linea(String keyUsuario, String keyTarea, String elemento, String url, String evento, Date tiempo,
+	public Linea(String keyUsuario, String keyTarea, String elemento, String url, String evento, String tiempo,
 			String pcIp) {
 		super();
 		this.keyUsuario = keyUsuario;
@@ -68,12 +66,12 @@ public class Linea {
 		this.evento = evento;
 	}
 
-	public Date getTiempo() {
+	public String getTiempo() {
 		return tiempo;
 	}
 
 	public void setTiempo(String tiempo) {
-		this.tiempo = new Date(Long.parseLong(tiempo));
+		this.tiempo = tiempo;
 	}
 
 	public String getPcIp() {
