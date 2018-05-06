@@ -7,13 +7,18 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Timestamp;
 
+import org.apache.log4j.Logger;
+
 import com.datos.Datos;
 import com.datos.Linea;
 import com.datos.Tarea;
 import com.datos.Usuario;
+import com.group.six.LoggerWS;
 
 public class JDBCQuery {
 
+	private static Logger logger = Logger.getLogger(JDBCQuery.class);
+	
 	public static boolean insertarUsuarios(Datos datos) {
 		Statement stmt = null;
 		Connection conn = null;
@@ -39,6 +44,7 @@ public class JDBCQuery {
 				if (conn != null)
 					conn.close();
 			} catch (Exception e) {
+				logger.error(e.getMessage());
 				e.printStackTrace();
 			}
 		}
@@ -70,6 +76,7 @@ public class JDBCQuery {
 				if (conn != null)
 					conn.close();
 			} catch (Exception e) {
+				logger.error(e.getMessage());
 				e.printStackTrace();
 			}
 		}
@@ -100,6 +107,7 @@ public class JDBCQuery {
 				if (conn != null)
 					conn.close();
 			} catch (Exception e) {
+				logger.error(e.getMessage());
 				e.printStackTrace();
 			}
 		}

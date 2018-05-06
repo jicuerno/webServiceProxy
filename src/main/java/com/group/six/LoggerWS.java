@@ -41,6 +41,8 @@ public class LoggerWS {
 			retorno = JDBCQuery.insertarUsuarios(datosTabla);
 		} catch (Exception e) {
 			retorno = false;
+			logger.error(e.getMessage());
+			return e.getMessage();
 		}
 
 		return retorno ? "isOk" : "noOk";
@@ -60,6 +62,8 @@ public class LoggerWS {
 			retorno = JDBCQuery.insertarTareas(datosTabla);
 		} catch (Exception e) {
 			retorno = false;
+			logger.error(e.getMessage());
+			return e.getMessage();
 		}
 
 		return retorno ? "isOk" : "noOk";
@@ -79,6 +83,8 @@ public class LoggerWS {
 			retorno = JDBCQuery.insertarLineas(datosTabla);
 		} catch (Exception e) {
 			retorno = false;
+			logger.error(e.getMessage());
+			return e.getMessage();
 		}
 		return retorno ? "isOk" : "noOk";
 	}
